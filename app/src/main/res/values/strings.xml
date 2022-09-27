@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">QueFaire</string>
+    <string name="que_faire">Que Faire ?</string>
+    <string name="todo">TODO</string>
+    <string name="debutter">Débutter</string>
+    <string name="quitter">Quitter</string>
+</resources>
