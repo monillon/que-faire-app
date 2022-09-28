@@ -14,6 +14,15 @@
         android:theme="@style/Theme.QueFaire"
         tools:targetApi="31">
         <activity
+            android:name=".questions_page3"
+            android:exported="false" />
+        <activity
+            android:name=".questions_page2"
+            android:exported="false" />
+        <activity
+            android:name=".QuestionsPage1"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

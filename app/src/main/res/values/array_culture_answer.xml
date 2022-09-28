@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_culture_answer">
+        <item>Science</item>
+        <item>7eme art</item>
+        <item>Histoire</item>
+        <item>Art visuel</item>
+        <item>Art audio</item>
+        <item>Culture Pop</item>
+    </string-array>
+</resources>

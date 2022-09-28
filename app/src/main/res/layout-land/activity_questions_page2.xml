@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".questions_page2">
+
+    <TextView
+        android:id="@+id/question4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/Q4Desc"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="174dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/question4"
+        app:layout_constraintTop_toBottomOf="@+id/question4">
+
+        <RadioButton
+            android:id="@+id/answer4yes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/A4Yes" />
+
+        <RadioButton
+            android:id="@+id/answer4no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/A4No" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/questions5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/QDesc5"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/question4"
+        app:layout_constraintTop_toTopOf="@+id/question4" />
+
+    <Spinner
+        android:id="@+id/answer5"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:entries="@array/array_culture_answer"
+        app:layout_constraintStart_toStartOf="@+id/questions5"
+        app:layout_constraintTop_toBottomOf="@+id/questions5" />
+
+    <Button
+        android:id="@+id/backButtonPage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Retour"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/NextButtonPage2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/NextButtonPage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Suivant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/backButtonPage2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
