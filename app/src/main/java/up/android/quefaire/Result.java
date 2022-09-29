@@ -6,20 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class questions_page5 extends AppCompatActivity {
+public class Result extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_questions_page5);
+        setContentView(R.layout.activity_result);
     }
 
-    public void next(View v){
-        Intent intent = new Intent(this, Result.class);
+    public void restart(View v){
+        Intent intent = new Intent(this, QuestionsPage1.class);
         startActivity(intent);
     }
 
-    public void back(View v){
-        finish();
-    }
+    public void back(View v){finish();}
 }
