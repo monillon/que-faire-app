@@ -6,16 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class questions_page3 extends AppCompatActivity {
+public class questions_page4 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_questions_page3);
+        setContentView(R.layout.activity_questions_page4);
     }
 
     public void next(View v){
-        Intent intent = new Intent(this, questions_page4.class);
+        Intent intent = new Intent(this, questions_page5.class);
         startActivity(intent);
     }
 
