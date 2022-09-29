@@ -57,4 +57,5 @@
     <string name="TextResultDesc">On vous conseille l\'activité suivante :</string>
     <string name="ResultTitle">Résultat</string>
     <string name="ButtonExit">Quitter</string>
+    <string name="ButtonBackResult">Retour</string>
 </resources>
