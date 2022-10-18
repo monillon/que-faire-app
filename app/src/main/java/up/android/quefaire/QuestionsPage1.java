@@ -1,9 +1,12 @@
 package up.android.quefaire;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
@@ -60,10 +63,45 @@ public class QuestionsPage1 extends AppCompatActivity {
 
     }
 
-    //TODO: Faire on save instance
-    //TODO: Faire on restaure
     //TODO: Faire intent pour activity suivante
-    //TODO: Faire en sorte que les questions soient répondu pour passer aux suivants
+
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // sauvegarde des données en cas de onStop
+        outState.putString("answer1yesBool", String.valueOf(answer1yes.isChecked()));
+        outState.putString("answer1noBool", String.valueOf(answer1no.isChecked()));
+        outState.putString("answer2", answer2.getText().toString());
+        outState.putString("answer3yesBool", String.valueOf(answer3yes.isChecked()));
+        outState.putString("answer3noBool", String.valueOf(answer3no.isChecked()));
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState.containsKey("answer1yesBool")) {
+            answer3yes.setChecked(Boolean.parseBoolean(savedInstanceState.getString("answer1yesBool")));
+        }
+
+        if (savedInstanceState.containsKey("answer1noBool")) {
+            answer1no.setChecked(Boolean.parseBoolean(savedInstanceState.getString("answer1noBool")));
+        }
+
+        if (savedInstanceState.containsKey("answer2")) {
+            answer2.setText(savedInstanceState.getString("answer2"));
+        }
+
+        if (savedInstanceState.containsKey("answer3yesBool")) {
+            answer3yes.setChecked(Boolean.parseBoolean(savedInstanceState.getString("answer3yesBool")));
+        }
+
+        if (savedInstanceState.containsKey("answer3noBool")) {
+            answer3no.setChecked(Boolean.parseBoolean(savedInstanceState.getString("answer3noBool")));
+        }
+
+    }
+
 
     public void back(View v){
         finish();
