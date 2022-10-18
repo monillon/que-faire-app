@@ -56,14 +56,16 @@ public class QuestionsPage1 extends AppCompatActivity {
         if (erreurSaisie) {
             MainActivity.toast(this, "Vous devez remplir tous les champs");
             MainActivity.vibrate(this, 300);
-
         } else {
+
+            intent.putExtra("sortirCeSoir", (answer1yes.isChecked()));
+            intent.putExtra("nbPersonne", Integer.parseInt(answer2.getText().toString()));
+            intent.putExtra("aimerNature", answer3yes.isChecked());
+
             startActivity(intent);
         }
 
     }
-
-    //TODO: Faire intent pour activity suivante
 
 
     @Override
