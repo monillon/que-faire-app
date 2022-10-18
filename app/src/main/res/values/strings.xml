@@ -2,7 +2,7 @@
     <string name="app_name">QueFaire</string>
     <string name="que_faire">Que Faire ?</string>
     <string name="todo">TODO</string>
-    <string name="debutter">Débuter</string>
+    <string name="debuter">Débuter</string>
     <string name="quitter">Quitter</string>
     <string name="Q1Desc">Avez vous envie de sortir ?</string>
     <string name="Q2Desc">Combien êtes vous ?</string>
@@ -45,7 +45,7 @@
     <string name="A9Sleep">Dormir</string>
     <string name="A9EscapeGame">Escape Game</string>
     <string name="A9Museum">Musée</string>
-    <string name="QDesc10">Avez-vous chaud ou envie d’être mouiller?</string>
+    <string name="QDesc10">Avez-vous chaud ou envie d’être mouillé(e) ?</string>
     <string name="QDesc11">Voulez vous une activité à sensation ?</string>
     <string name="QDesc12">Voulez-vous voir des animeaux ?</string>
     <string name="ButtonBack5">Retour</string>
