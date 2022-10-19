@@ -58,7 +58,7 @@ public class QuestionsPage1 extends AppCompatActivity {
             MainActivity.vibrate(this, 300);
         } else {
 
-            intent.putExtra("sortirCeSoir", (answer1yes.isChecked()));
+            intent.putExtra("sortirCeSoir", answer1yes.isChecked());
             intent.putExtra("nbPersonne", Integer.parseInt(answer2.getText().toString()));
             intent.putExtra("aimerNature", answer3yes.isChecked());
 
@@ -72,22 +72,22 @@ public class QuestionsPage1 extends AppCompatActivity {
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         // sauvegarde des données en cas de onStop
-        outState.putString("answer1yesBool", String.valueOf(answer1yes.isChecked()));
-        outState.putString("answer1noBool", String.valueOf(answer1no.isChecked()));
+        outState.putBoolean("answer1yesBool", answer1yes.isChecked());
+        outState.putBoolean("answer1noBool", answer1no.isChecked());
         outState.putString("answer2", answer2.getText().toString());
-        outState.putString("answer3yesBool", String.valueOf(answer3yes.isChecked()));
-        outState.putString("answer3noBool", String.valueOf(answer3no.isChecked()));
+        outState.putBoolean("answer3yesBool", answer3yes.isChecked());
+        outState.putBoolean("answer3noBool", answer3no.isChecked());
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         if (savedInstanceState.containsKey("answer1yesBool")) {
-            answer3yes.setChecked(Boolean.parseBoolean(savedInstanceState.getString("answer1yesBool")));
+            answer3yes.setChecked(savedInstanceState.getBoolean("answer1yesBool"));
         }
 
         if (savedInstanceState.containsKey("answer1noBool")) {
-            answer1no.setChecked(Boolean.parseBoolean(savedInstanceState.getString("answer1noBool")));
+            answer1no.setChecked(savedInstanceState.getBoolean("answer1noBool"));
         }
 
         if (savedInstanceState.containsKey("answer2")) {
@@ -95,11 +95,11 @@ public class QuestionsPage1 extends AppCompatActivity {
         }
 
         if (savedInstanceState.containsKey("answer3yesBool")) {
-            answer3yes.setChecked(Boolean.parseBoolean(savedInstanceState.getString("answer3yesBool")));
+            answer3yes.setChecked(savedInstanceState.getBoolean("answer3yesBool"));
         }
 
         if (savedInstanceState.containsKey("answer3noBool")) {
-            answer3no.setChecked(Boolean.parseBoolean(savedInstanceState.getString("answer3noBool")));
+            answer3no.setChecked(savedInstanceState.getBoolean("answer3noBool"));
         }
 
     }
