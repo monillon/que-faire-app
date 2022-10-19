@@ -62,7 +62,6 @@ public class questions_page3 extends AppCompatActivity {
 
     }
 
-    //TODO : envoyer les informations
 
     public void next(View v){
         boolean erreurSaisie = false;
@@ -79,11 +78,16 @@ public class questions_page3 extends AppCompatActivity {
             MainActivity.vibrate(this, 300);
         } else {
 
+            savedData.forEach((key, value) -> {
+                intent.putExtra(key, value);
+            });
+
+            intent.putExtra("mood", answer6.getSelectedItem().toString());
+            intent.putExtra("age", Integer.parseInt(answer7.getText().toString()));
+            intent.putExtra("payante", answer8yes.isChecked());
 
             startActivity(intent);
         }
-
-
     }
 
     @Override
