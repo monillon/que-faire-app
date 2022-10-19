@@ -1,5 +1,6 @@
 package up.android.quefaire;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -46,6 +47,8 @@ public class questions_page2 extends AppCompatActivity {
             }
         });
 
+        answer5.setEnabled(false);
+
 
 
         // récupération des valeurs de l'activité précédente et stockage dans une HashMap
@@ -55,7 +58,7 @@ public class questions_page2 extends AppCompatActivity {
         }
 
         if (getIntent().getExtras().containsKey("nbPersonne")) {
-            savedData.put("nbPersonne", String.valueOf(getIntent().getBooleanExtra("nbPersonne", false)));
+            savedData.put("nbPersonne", String.valueOf(getIntent().getIntExtra("nbPersonne", 1)));
         }
 
         if (getIntent().getExtras().containsKey("aimerNature")) {
@@ -77,9 +80,49 @@ public class questions_page2 extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //TODO : faire un on save
-    //TODO : faire un on restore
     //TODO: envoyer toutes les informations à l'activiée suivante
+    //TODO: vérifier qu'on envoi et récupère dans le bon type et pas que des string
+
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        savedData.forEach((key, value) -> {
+            outState.putString(key, value);
+        });
+
+        outState.putBoolean("answer4yes", answer4yes.isChecked());
+        outState.putBoolean("answer4no", answer4no.isChecked());
+        outState.putInt("answer5", answer5.getSelectedItemPosition());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        if (savedInstanceState.containsKey("answer4yes")) {
+            answer4yes.setChecked(savedInstanceState.getBoolean("answer4yes"));
+        }
+        if (savedInstanceState.containsKey("answer4no")) {
+            answer4yes.setChecked(savedInstanceState.getBoolean("answer4no"));
+        }
+        if (savedInstanceState.containsKey("answer5")) {
+            answer5.setSelection(savedInstanceState.getInt("answer5"));
+        }
+
+
+        if (getIntent().getExtras().containsKey("sortirCeSoir")) {
+            savedData.put("sortirCeSoir", String.valueOf(getIntent().getBooleanExtra("sortirCeSoir", false)));
+        }
+
+        if (getIntent().getExtras().containsKey("nbPersonne")) {
+            savedData.put("nbPersonne", String.valueOf(getIntent().getIntExtra("nbPersonne", 1)));
+        }
+
+        if (getIntent().getExtras().containsKey("aimerNature")) {
+            savedData.put("aimerNature", String.valueOf(getIntent().getBooleanExtra("aimerNature", false)));
+        }
+    }
 
     public void back(View v){
         finish();
