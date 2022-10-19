@@ -63,11 +63,27 @@ public class questions_page3 extends AppCompatActivity {
     }
 
     //TODO : envoyer les informations
-    //TODO: bloquer si toutes les questions n'ont pas de réponse
 
     public void next(View v){
+        boolean erreurSaisie = false;
         Intent intent = new Intent(this, questions_page4.class);
-        startActivity(intent);
+        if (answer7.getText().toString().isEmpty()) {
+            erreurSaisie = true;
+        }
+        if(!answer8yes.isChecked() && !answer8no.isChecked()) {
+            erreurSaisie = true;
+        }
+
+        if (erreurSaisie) {
+            MainActivity.toast(this, "Vous devez remplir tous les champs");
+            MainActivity.vibrate(this, 300);
+        } else {
+
+
+            startActivity(intent);
+        }
+
+
     }
 
     @Override
