@@ -74,13 +74,19 @@ public class questions_page2 extends AppCompatActivity {
         if (!answer4yes.isChecked() && !answer4no.isChecked()) {
             MainActivity.toast(this, "Vous devez remplir tous les champs");
             MainActivity.vibrate(this, 300);
+        } else {
+            intent.putExtra("interetCulture", answer4yes.isChecked());
+            if (answer4yes.isChecked()) {
+                intent.putExtra("typeCulture", answer5.getSelectedItem().toString());
+            } else {
+                intent.putExtra("typeCulture", "NA");
+            }
+
+            startActivity(intent);
         }
 
-
-        startActivity(intent);
     }
 
-    //TODO: envoyer toutes les informations à l'activiée suivante
     //TODO: vérifier qu'on envoi et récupère dans le bon type et pas que des string
 
 
