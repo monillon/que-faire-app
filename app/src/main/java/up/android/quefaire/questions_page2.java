@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.Spinner;
 
 import java.util.HashMap;
 
@@ -13,11 +15,38 @@ public class questions_page2 extends AppCompatActivity {
 
     private HashMap<String, String> savedData;
 
+    private RadioButton answer4yes;
+    private RadioButton answer4no;
+
+    private Spinner answer5;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions_page2);
+
+        answer4yes = findViewById(R.id.answer4yes);
+        answer4no = findViewById(R.id.answer4no);
+        answer5 = findViewById(R.id.answer5);
+
+
+        // création d'un listener sur l'action de sélection no
+        answer4no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                answer5.setEnabled(false);
+            }
+        });
+
+        answer4yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                answer5.setEnabled(true);
+            }
+        });
+
+
 
         // récupération des valeurs de l'activité précédente et stockage dans une HashMap
         savedData = new HashMap<>();
@@ -39,6 +68,10 @@ public class questions_page2 extends AppCompatActivity {
         Intent intent = new Intent(this, questions_page3.class);
         startActivity(intent);
     }
+
+    //TODO: Vérifier que toutes les questions aient des réponses
+    //TODO : faire un on save
+    //TODO : faire un on restore
 
     public void back(View v){
         finish();
