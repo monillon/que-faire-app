@@ -120,16 +120,16 @@ public class questions_page2 extends AppCompatActivity {
         }
 
 
-        if (getIntent().getExtras().containsKey("sortirCeSoir")) {
-            savedData.put("sortirCeSoir", getIntent().getStringExtra("sortirCeSoir"));
+        if (savedInstanceState.containsKey("sortirCeSoir")) {
+            savedData.put("sortirCeSoir", savedInstanceState.getString("sortirCeSoir"));
         }
 
-        if (getIntent().getExtras().containsKey("nbPersonne")) {
-            savedData.put("nbPersonne", getIntent().getStringExtra("nbPersonne"));
+        if (savedInstanceState.containsKey("nbPersonne")) {
+            savedData.put("nbPersonne", savedInstanceState.getString("nbPersonne"));
         }
 
-        if (getIntent().getExtras().containsKey("aimerNature")) {
-            savedData.put("aimerNature", getIntent().getStringExtra("aimerNature"));
+        if (savedInstanceState.containsKey("aimerNature")) {
+            savedData.put("aimerNature", savedInstanceState.getString("aimerNature"));
         }
     }
 
