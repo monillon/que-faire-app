@@ -66,12 +66,20 @@ public class questions_page2 extends AppCompatActivity {
 
     public void next(View v){
         Intent intent = new Intent(this, questions_page3.class);
+
+        // toutes les questions doivents avoir une réponse
+        if (!answer4yes.isChecked() && !answer4no.isChecked()) {
+            MainActivity.toast(this, "Vous devez remplir tous les champs");
+            MainActivity.vibrate(this, 300);
+        }
+
+
         startActivity(intent);
     }
 
-    //TODO: Vérifier que toutes les questions aient des réponses
     //TODO : faire un on save
     //TODO : faire un on restore
+    //TODO: envoyer toutes les informations à l'activiée suivante
 
     public void back(View v){
         finish();
