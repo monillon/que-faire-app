@@ -62,8 +62,8 @@ public class questions_page3 extends AppCompatActivity {
 
     }
 
-    //TODO : faire on restore instance
     //TODO : envoyer les informations
+    //TODO: bloquer si toutes les questions n'ont pas de réponse
 
     public void next(View v){
         Intent intent = new Intent(this, questions_page4.class);
@@ -82,6 +82,43 @@ public class questions_page3 extends AppCompatActivity {
         outState.putString("answer7", answer7.getText().toString());
         outState.putBoolean("answer8yes", answer8yes.isChecked());
         outState.putBoolean("answer8no", answer8no.isChecked());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        if (savedInstanceState.containsKey("answer6")) {
+            answer6.setSelection(savedInstanceState.getInt("answer6"));
+        }
+        if (savedInstanceState.containsKey("answer7")) {
+            answer7.setText(savedInstanceState.getString("answer7"));
+        }
+        if (savedInstanceState.containsKey("answer8yes")) {
+            answer8yes.setChecked(savedInstanceState.getBoolean("answer8yes"));
+        }
+        if (savedInstanceState.containsKey("answer8no")) {
+            answer8no.setChecked(savedInstanceState.getBoolean("answer8no"));
+        }
+
+
+        if (savedInstanceState.containsKey("interetCulture")) {
+            savedData.put("interetCulture", savedInstanceState.getString("interetCulture"));
+        }
+        if (savedInstanceState.containsKey("typeCulture")) {
+            savedData.put("typeCulture", savedInstanceState.getString("typeCulture"));
+        }
+        if (savedInstanceState.containsKey("sortirCeSoir")) {
+            savedData.put("sortirCeSoir", savedInstanceState.getString("sortirCeSoir"));
+        }
+        if (savedInstanceState.containsKey("nbPersonne")) {
+            savedData.put("nbPersonne", savedInstanceState.getString("nbPersonne"));
+        }
+        if (savedInstanceState.containsKey("aimerNature")) {
+            savedData.put("aimerNature", savedInstanceState.getString("aimerNature"));
+        }
+
+
     }
 
     public void back(View v){
