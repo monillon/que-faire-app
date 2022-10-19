@@ -82,6 +82,10 @@ public class questions_page2 extends AppCompatActivity {
                 intent.putExtra("typeCulture", "NA");
             }
 
+            savedData.forEach((key, value) -> {
+                intent.putExtra(key, value);
+            });
+
             startActivity(intent);
         }
 
