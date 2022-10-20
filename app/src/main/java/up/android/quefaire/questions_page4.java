@@ -94,7 +94,7 @@ public class questions_page4 extends AppCompatActivity {
             });
 
             answers.forEach((key, value) -> {
-                intent.putExtra("activite-"+key, value.isChecked());
+                intent.putExtra(key, value.isChecked());
             });
             intent.putExtra("truc", answers);
             startActivity(intent);
