@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.CheckBox;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class questions_page4 extends AppCompatActivity {
 
@@ -71,12 +72,32 @@ public class questions_page4 extends AppCompatActivity {
     }
 
     public void next(View v){
+        boolean nothingCheked = true;
+
         Intent intent = new Intent(this, questions_page5.class);
-        startActivity(intent);
+
+        for (Map.Entry<String, CheckBox> i : answers.entrySet()) {
+            CheckBox value = i.getValue();
+            if (value.isChecked()) {
+                nothingCheked = false;
+            }
+            break;
+        }
+
+        if (nothingCheked) {
+            MainActivity.toast(this, "Vous devez remplir tous les champs");
+            MainActivity.vibrate(this, 300);
+        } else {
+            // sauvegarde des données
+
+
+            startActivity(intent);
+        }
+
+
     }
 
     //TODO: envoyer les données
-    //TODO: toutes les questions doivent avoir une réponse
 
 
     @Override
