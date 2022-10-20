@@ -105,11 +105,17 @@ public class questions_page5 extends AppCompatActivity {
 
     public void next(View v){
         Intent intent = new Intent(this, Result.class);
+
+        savedData.forEach((key, value) -> {
+            intent.putExtra(key, value);
+        });
+
+        intent.putExtra("mouille", answer10.getProgress());
+        intent.putExtra("sensation", answer11.getProgress());
+        intent.putExtra("animaux", answer12.getSelectedItem().toString());
+
         startActivity(intent);
     }
-
-    //TODO: toutes les questions doivent avoir une réponse
-    //TODO: envoyer les informations au suivant
 
 
     @Override
