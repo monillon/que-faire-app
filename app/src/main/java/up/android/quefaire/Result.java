@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Result extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class Result extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
+        savedData = new HashMap<>();
         //récupérer les informations précédentes
         if (getIntent().getExtras().containsKey("mouille")) {
             savedData.put("mouille", String.valueOf(getIntent().getIntExtra("mouille", 0)));
@@ -102,6 +104,24 @@ public class Result extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+    }
+
+    public void partager(View v) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+
+        String texte = new String();
+
+        for (Map.Entry<String, String> entry : savedData.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            texte += key + " : " + value + "\n";
+        }
+
+
+        intent.putExtra(Intent.EXTRA_TEXT, "Voilà mes résulats à l'activité que faire \n" + texte);
+        startActivity(Intent.createChooser(intent, "Share"));
     }
 
     public void back(View v){finish();}
