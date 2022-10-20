@@ -1,10 +1,12 @@
 package up.android.quefaire;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 
 import java.util.HashMap;
 
@@ -12,10 +14,28 @@ public class questions_page4 extends AppCompatActivity {
 
     private HashMap<String, String> savedData;
 
+    private HashMap<String, CheckBox> answers;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions_page4);
+
+        answers = new HashMap<>();
+        answers.put("answer9Drink", findViewById(R.id.answer9Drink));
+        answers.put("answer9Sport", findViewById(R.id.answer9Sport));
+        answers.put("answer9Walking", findViewById(R.id.answer9Walking));
+        answers.put("answer9ThemePark", findViewById(R.id.answer9ThemePark));
+        answers.put("answer9EscapeGame", findViewById(R.id.answer9EscapeGame));
+        answers.put("answer9Shooping", findViewById(R.id.answer9Shooping));
+        answers.put("answer9Cinema", findViewById(R.id.answer9Cinema));
+        answers.put("answer9VideoGame", findViewById(R.id.answer9VideoGame));
+        answers.put("answer9BoardGame", findViewById(R.id.answer9BoardGame));
+        answers.put("answer9Netflix", findViewById(R.id.answer9Netflix));
+        answers.put("answer9Read", findViewById(R.id.answer9Read));
+        answers.put("answer9Eat", findViewById(R.id.answer9Eat));
+        answers.put("answer9sleep", findViewById(R.id.answer9sleep));
+        answers.put("answer9Museum", findViewById(R.id.answer9Museum));
 
 
         // Récupération des informations de l'activité précédente
@@ -55,10 +75,23 @@ public class questions_page4 extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //TODO: faire on save
     //TODO: faire on restore
     //TODO: envoyer les données
     //TODO: toutes les questions doivent avoir une réponse
+
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        savedData.forEach((key, value) -> {
+            outState.putString(key, value);
+        });
+
+        answers.forEach((key, value) -> {
+            outState.putBoolean(key, value.isChecked());
+        });
+    }
 
     public void back(View v){
         finish();
