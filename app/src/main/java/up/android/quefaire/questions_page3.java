@@ -54,10 +54,6 @@ public class questions_page3 extends AppCompatActivity {
             savedData.put("aimerNature", getIntent().getStringExtra("aimerNature"));
         }
 
-        savedData.forEach((key, value) -> {
-            Log.i(MainActivity.TAG, "key = " + key + " value = " + value);
-        });
-
 
 
     }
