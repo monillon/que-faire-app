@@ -4,9 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -98,6 +106,8 @@ public class Result extends AppCompatActivity {
             savedData.put("nbPersonne", getIntent().getStringExtra("nbPersonne"));
         }
 
+
+        write_answers_in_file();
     }
 
     public void restart(View v){
@@ -125,4 +135,34 @@ public class Result extends AppCompatActivity {
     }
 
     public void back(View v){finish();}
+
+    public void write_answers_in_file() {
+        File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        File fileout = new File(folder, "answers.txt");
+        try (FileOutputStream fos = new FileOutputStream(fileout, true)) {
+            PrintStream ps = new PrintStream(fos);
+            ps.println("Start of my historic of " + Calendar.getInstance().getTime());
+
+            // TODO: YOU MUST COMPLETE ICI
+            String texte = new String();
+
+            for (Map.Entry<String, String> entry : savedData.entrySet()) {
+                String key = entry.getKey();
+                String value = entry.getValue();
+                texte += key + " : " + value + "\n";
+            }
+
+            ps.println(texte);
+
+            ps.close();
+        } catch (FileNotFoundException e) {
+            Log.e(MainActivity.TAG,"File not found",e);
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e(MainActivity.TAG,"Error I/O",e);
+        }
+
+    }
+
 }
