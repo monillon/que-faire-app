@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
@@ -29,7 +30,7 @@ public class questions_page5 extends AppCompatActivity {
         answer11 = findViewById(R.id.answer11);
         answer12 = findViewById(R.id.answer12);
 
-
+        savedData = new HashMap<>();
         //récupération des informations de l'activité précédente
         if (getIntent().getExtras().containsKey("answer9Drink")) {
             savedData.put("answer9Drink", String.valueOf(getIntent().getBooleanExtra("answer9Drink", true)));

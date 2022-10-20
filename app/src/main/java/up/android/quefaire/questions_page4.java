@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 
@@ -96,7 +97,7 @@ public class questions_page4 extends AppCompatActivity {
             answers.forEach((key, value) -> {
                 intent.putExtra(key, value.isChecked());
             });
-            intent.putExtra("truc", answers);
+
             startActivity(intent);
         }
 
