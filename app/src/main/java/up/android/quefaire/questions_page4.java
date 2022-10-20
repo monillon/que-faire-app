@@ -75,7 +75,6 @@ public class questions_page4 extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //TODO: faire on restore
     //TODO: envoyer les données
     //TODO: toutes les questions doivent avoir une réponse
 
@@ -93,7 +92,45 @@ public class questions_page4 extends AppCompatActivity {
         });
     }
 
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        answers.forEach((key, value) -> {
+            if (savedInstanceState.containsKey(key)) {
+                value.setChecked(savedInstanceState.getBoolean(key));
+            }
+        });
+
+        if (savedInstanceState.containsKey("mood")) {
+            savedData.put("mood", savedInstanceState.getString("mood"));
+        }
+        if (savedInstanceState.containsKey("age")) {
+            savedData.put("age", savedInstanceState.getString("age"));
+        }
+        if (savedInstanceState.containsKey("payante")) {
+            savedData.put("payante", savedInstanceState.getString("payante"));
+        }
+        if (savedInstanceState.containsKey("interetCulture")) {
+            savedData.put("interetCulture", savedInstanceState.getString("interetCulture"));
+        }
+        if (savedInstanceState.containsKey("sortirCeSoir")) {
+            savedData.put("sortirCeSoir", savedInstanceState.getString("sortirCeSoir"));
+        }
+        if (savedInstanceState.containsKey("nbPersonne")) {
+            savedData.put("nbPersonne", savedInstanceState.getString("nbPersonne"));
+        }
+        if (savedInstanceState.containsKey("aimerNature")) {
+            savedData.put("aimerNature", savedInstanceState.getString("aimerNature"));
+        }
+    }
+
     public void back(View v){
         finish();
     }
 }
+
+
+
+
