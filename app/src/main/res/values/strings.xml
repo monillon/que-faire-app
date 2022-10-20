@@ -53,7 +53,7 @@
     <string name="ADesc10DontKnow">Ne sais pas</string>
     <string name="ADesc10Yes">Oui</string>
     <string name="ADesc10No">Non</string>
-    <string name="ButtonAnotherChoice">Propose moi autre chose</string>
+    <string name="ButtonAnotherChoice">Recommencer</string>
     <string name="TextResultDesc">On vous conseille l\'activité suivante :</string>
     <string name="ResultTitle">Résultat</string>
     <string name="partager">Partager</string>
