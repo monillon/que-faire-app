@@ -80,8 +80,8 @@ public class questions_page4 extends AppCompatActivity {
             CheckBox value = i.getValue();
             if (value.isChecked()) {
                 nothingCheked = false;
+                break;
             }
-            break;
         }
 
         if (nothingCheked) {
@@ -89,15 +89,19 @@ public class questions_page4 extends AppCompatActivity {
             MainActivity.vibrate(this, 300);
         } else {
             // sauvegarde des données
+            savedData.forEach((key, value) -> {
+                intent.putExtra(key, value);
+            });
 
-
+            answers.forEach((key, value) -> {
+                intent.putExtra("activite-"+key, value.isChecked());
+            });
+            intent.putExtra("truc", answers);
             startActivity(intent);
         }
 
 
     }
-
-    //TODO: envoyer les données
 
 
     @Override
