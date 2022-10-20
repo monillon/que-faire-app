@@ -16,7 +16,8 @@ public class Result extends AppCompatActivity {
     }
 
     public void restart(View v){
-        Intent intent = new Intent(this, QuestionsPage1.class);
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
