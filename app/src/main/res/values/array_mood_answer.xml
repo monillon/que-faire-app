@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="array_mood_answer">
-        <item>Bien</item>
-        <item>Triste</item>
-        <item>Heureux</item>
-        <item>Nostalgique</item>
-        <item>Energique</item>
-        <item>Amoureux</item>
+        <item>Good</item>
+        <item>Sad</item>
+        <item>Happy</item>
+        <item>Nostalgic</item>
+        <item>Energetic</item>
+        <item>In love</item>
     </string-array>
 </resources>

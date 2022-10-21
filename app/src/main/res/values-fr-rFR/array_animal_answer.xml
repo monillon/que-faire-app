@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="array_animal_answer">
-        <item>No</item>
-        <item>A bit</item>
-        <item>Yes</item>
-        <item>Absolutly</item>
+        <item>Non</item>
+        <item>Un Peu</item>
+        <item>Oui</item>
+        <item>Absolument</item>
     </string-array>
 </resources>
