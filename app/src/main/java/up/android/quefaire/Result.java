@@ -148,7 +148,6 @@ public class Result extends AppCompatActivity {
             PrintStream ps = new PrintStream(fos);
             ps.println("Start of my historic of " + Calendar.getInstance().getTime());
 
-            // TODO: YOU MUST COMPLETE ICI
             String texte = new String();
 
             for (Map.Entry<String, String> entry : savedData.entrySet()) {
