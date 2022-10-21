@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="45dp"
         android:contentDescription="@string/QDesc11"
         android:rating="3"
         android:stepSize="0.5"
