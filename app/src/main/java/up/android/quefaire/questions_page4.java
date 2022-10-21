@@ -109,10 +109,6 @@ public class questions_page4 extends AppCompatActivity {
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        savedData.forEach((key, value) -> {
-            outState.putString(key, value);
-        });
-
         answers.forEach((key, value) -> {
             outState.putBoolean(key, value.isChecked());
         });
@@ -128,28 +124,6 @@ public class questions_page4 extends AppCompatActivity {
                 value.setChecked(savedInstanceState.getBoolean(key));
             }
         });
-
-        if (savedInstanceState.containsKey("mood")) {
-            savedData.put("mood", savedInstanceState.getString("mood"));
-        }
-        if (savedInstanceState.containsKey("age")) {
-            savedData.put("age", savedInstanceState.getString("age"));
-        }
-        if (savedInstanceState.containsKey("payante")) {
-            savedData.put("payante", savedInstanceState.getString("payante"));
-        }
-        if (savedInstanceState.containsKey("interetCulture")) {
-            savedData.put("interetCulture", savedInstanceState.getString("interetCulture"));
-        }
-        if (savedInstanceState.containsKey("sortirCeSoir")) {
-            savedData.put("sortirCeSoir", savedInstanceState.getString("sortirCeSoir"));
-        }
-        if (savedInstanceState.containsKey("nbPersonne")) {
-            savedData.put("nbPersonne", savedInstanceState.getString("nbPersonne"));
-        }
-        if (savedInstanceState.containsKey("aimerNature")) {
-            savedData.put("aimerNature", savedInstanceState.getString("aimerNature"));
-        }
     }
 
     public void back(View v){

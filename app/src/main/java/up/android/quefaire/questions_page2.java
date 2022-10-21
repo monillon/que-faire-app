@@ -96,9 +96,6 @@ public class questions_page2 extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        savedData.forEach((key, value) -> {
-            outState.putString(key, value);
-        });
 
         outState.putBoolean("answer4yes", answer4yes.isChecked());
         outState.putBoolean("answer4no", answer4no.isChecked());
@@ -117,19 +114,6 @@ public class questions_page2 extends AppCompatActivity {
         }
         if (savedInstanceState.containsKey("answer5")) {
             answer5.setSelection(savedInstanceState.getInt("answer5"));
-        }
-
-
-        if (savedInstanceState.containsKey("sortirCeSoir")) {
-            savedData.put("sortirCeSoir", savedInstanceState.getString("sortirCeSoir"));
-        }
-
-        if (savedInstanceState.containsKey("nbPersonne")) {
-            savedData.put("nbPersonne", savedInstanceState.getString("nbPersonne"));
-        }
-
-        if (savedInstanceState.containsKey("aimerNature")) {
-            savedData.put("aimerNature", savedInstanceState.getString("aimerNature"));
         }
     }
 

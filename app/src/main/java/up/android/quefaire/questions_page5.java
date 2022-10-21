@@ -123,10 +123,6 @@ public class questions_page5 extends AppCompatActivity {
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        savedData.forEach((key, value) -> {
-            outState.putString(key, value);
-        });
-
         outState.putInt("answer10", answer10.getProgress());
         outState.putInt("answer11", answer11.getProgress());
         outState.putInt("answer12", answer12.getSelectedItemPosition());
@@ -146,76 +142,6 @@ public class questions_page5 extends AppCompatActivity {
         if (savedInstanceState.containsKey("answer12")) {
             answer12.setSelection(savedInstanceState.getInt("answer12"));
         }
-
-
-        if (savedInstanceState.containsKey("answer9Drink")) {
-            savedData.put("answer9Drink", savedInstanceState.getString("answer9Drink"));
-        }
-        if (savedInstanceState.containsKey("answer9Sport")) {
-            savedData.put("answer9Sport", savedInstanceState.getString("answer9Sport"));
-        }
-        if (savedInstanceState.containsKey("answer9Walking")) {
-            savedData.put("answer9Walking", savedInstanceState.getString("answer9Walking"));
-        }
-        if (savedInstanceState.containsKey("answer9ThemePark")) {
-            savedData.put("answer9ThemePark", savedInstanceState.getString("answer9ThemePark"));
-        }
-        if (savedInstanceState.containsKey("answer9EscapeGame")) {
-            savedData.put("answer9EscapeGame", savedInstanceState.getString("answer9EscapeGame"));
-        }
-        if (savedInstanceState.containsKey("answer9Shooping")) {
-            savedData.put("answer9Shooping", savedInstanceState.getString("answer9Shooping"));
-        }
-        if (savedInstanceState.containsKey("answer9Cinema")) {
-            savedData.put("answer9Cinema", savedInstanceState.getString("answer9Cinema"));
-        }
-        if (savedInstanceState.containsKey("answer9VideoGame")) {
-            savedData.put("answer9VideoGame", savedInstanceState.getString("answer9VideoGame"));
-        }
-        if (savedInstanceState.containsKey("answer9BoardGame")) {
-            savedData.put("answer9BoardGame", savedInstanceState.getString("answer9BoardGame"));
-        }
-        if (savedInstanceState.containsKey("answer9Netflix")) {
-            savedData.put("answer9Netflix", savedInstanceState.getString("answer9Netflix"));
-        }
-        if (savedInstanceState.containsKey("answer9Read")) {
-            savedData.put("answer9Read", savedInstanceState.getString("answer9Read"));
-        }
-        if (savedInstanceState.containsKey("answer9Eat")) {
-            savedData.put("answer9Eat", savedInstanceState.getString("answer9Eat"));
-        }
-        if (savedInstanceState.containsKey("answer9sleep")) {
-            savedData.put("answer9sleep", savedInstanceState.getString("answer9sleep"));
-        }
-        if (savedInstanceState.containsKey("answer9Museum")) {
-            savedData.put("answer9Museum", savedInstanceState.getString("answer9Museum"));
-        }
-
-
-
-        if (savedInstanceState.containsKey("mood")) {
-            savedData.put("mood", savedInstanceState.getString("mood"));
-        }
-        if (savedInstanceState.containsKey("age")) {
-            savedData.put("age", savedInstanceState.getString("age"));
-        }
-        if (savedInstanceState.containsKey("payante")) {
-            savedData.put("payante", savedInstanceState.getString("payante"));
-        }
-        if (savedInstanceState.containsKey("interetCulture")) {
-            savedData.put("interetCulture", savedInstanceState.getString("interetCulture"));
-        }
-        if (savedInstanceState.containsKey("sortirCeSoir")) {
-            savedData.put("sortirCeSoir", savedInstanceState.getString("sortirCeSoir"));
-        }
-        if (savedInstanceState.containsKey("nbPersonne")) {
-            savedData.put("nbPersonne", savedInstanceState.getString("nbPersonne"));
-        }
-        if (savedInstanceState.containsKey("aimerNature")) {
-            savedData.put("aimerNature", savedInstanceState.getString("aimerNature"));
-        }
-
-
     }
 
     public void back(View v){

@@ -90,10 +90,6 @@ public class questions_page3 extends AppCompatActivity {
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        savedData.forEach((key, value) -> {
-            outState.putString(key, value);
-        });
-
         outState.putInt("answer6", answer6.getSelectedItemPosition());
         outState.putString("answer7", answer7.getText().toString());
         outState.putBoolean("answer8yes", answer8yes.isChecked());
@@ -116,24 +112,6 @@ public class questions_page3 extends AppCompatActivity {
         if (savedInstanceState.containsKey("answer8no")) {
             answer8no.setChecked(savedInstanceState.getBoolean("answer8no"));
         }
-
-
-        if (savedInstanceState.containsKey("interetCulture")) {
-            savedData.put("interetCulture", savedInstanceState.getString("interetCulture"));
-        }
-        if (savedInstanceState.containsKey("typeCulture")) {
-            savedData.put("typeCulture", savedInstanceState.getString("typeCulture"));
-        }
-        if (savedInstanceState.containsKey("sortirCeSoir")) {
-            savedData.put("sortirCeSoir", savedInstanceState.getString("sortirCeSoir"));
-        }
-        if (savedInstanceState.containsKey("nbPersonne")) {
-            savedData.put("nbPersonne", savedInstanceState.getString("nbPersonne"));
-        }
-        if (savedInstanceState.containsKey("aimerNature")) {
-            savedData.put("aimerNature", savedInstanceState.getString("aimerNature"));
-        }
-
 
     }
 
