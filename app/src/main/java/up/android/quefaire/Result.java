@@ -137,6 +137,7 @@ public class Result extends AppCompatActivity {
     public void back(View v){finish();}
 
     public void write_answers_in_file() {
+        MainActivity.toast(this, "Les données ont été sauvegardées dans le dossier Téléchargements");
         File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         File fileout = new File(folder, "answers.txt");
         try (FileOutputStream fos = new FileOutputStream(fileout, true)) {
