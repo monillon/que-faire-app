@@ -192,25 +192,15 @@ public class Result extends AppCompatActivity {
 
         if (Integer.parseInt(savedData.get("mouille")) > 7) {
             resultat = "piscine";
-        }
-
-        if (Integer.parseInt(savedData.get("sensation")) > 3) {
+        } else if (Integer.parseInt(savedData.get("sensation")) > 3) {
             resultat = "accrobranche";
-        }
-
-        if (!Boolean.parseBoolean(savedData.get("sortirCeSoir"))) {
+        } else if (!Boolean.parseBoolean(savedData.get("sortirCeSoir"))) {
             resultat = "Tv/Série/Film/Animé";
-        }
-
-        if (!Boolean.parseBoolean(savedData.get("interetCulture"))) {
+        } else if (!Boolean.parseBoolean(savedData.get("interetCulture"))) {
             resultat = "musée";
-        }
-
-        if (!Boolean.parseBoolean(savedData.get("aimerNature"))) {
+        } else if (!Boolean.parseBoolean(savedData.get("aimerNature"))) {
             resultat = "promenade en forêt";
-        }
-
-        if (resultat.isEmpty()) {
+        } else {
             resultat = "Non concluant";
         }
 
