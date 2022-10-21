@@ -22,12 +22,14 @@ public class Result extends AppCompatActivity {
 
     private HashMap<String, String> savedData;
 
-    private TextView ResultOutput;
+    private TextView resultOutput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        resultOutput = findViewById(R.id.ResultOutput);
 
         savedData = new HashMap<>();
         //récupérer les informations précédentes
@@ -108,6 +110,8 @@ public class Result extends AppCompatActivity {
 
 
         write_answers_in_file();
+
+        resultOutput.setText("Le résulat du test est : " + computeResult());
     }
 
     public void restart(View v){
@@ -164,6 +168,54 @@ public class Result extends AppCompatActivity {
             Log.e(MainActivity.TAG,"Error I/O",e);
         }
 
+    }
+
+    public String computeResult() {
+        String resultat = "";
+        /*
+            Parc d’attraction
+            accrobranche
+            escape game
+            cinéma
+            bar
+            musée
+            zoo
+            karaoké
+            Parc national/public/promenade
+            piscine
+            netflix dans un bon bain
+            lire
+            Tv/Série/Film/Animé
+            jeu vidéo
+            resto ou faire la cuisine/manger
+            jeu de société
+        */
+
+        if (Integer.parseInt(savedData.get("mouille")) > 7) {
+            resultat = "piscine";
+        }
+
+        if (Integer.parseInt(savedData.get("sensation")) > 3) {
+            resultat = "accrobranche";
+        }
+
+        if (!Boolean.parseBoolean(savedData.get("sortirCeSoir"))) {
+            resultat = "Tv/Série/Film/Animé";
+        }
+
+        if (!Boolean.parseBoolean(savedData.get("interetCulture"))) {
+            resultat = "musée";
+        }
+
+        if (!Boolean.parseBoolean(savedData.get("aimerNature"))) {
+            resultat = "promenade en forêt";
+        }
+
+        if (resultat.isEmpty()) {
+            resultat = "Non concluant";
+        }
+
+        return resultat;
     }
 
 }
